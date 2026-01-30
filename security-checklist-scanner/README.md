@@ -105,7 +105,6 @@ message: .gitignore missing sensitive entries: .env, *.env, *.pem
 
 From inside the `scanner` directory:
 
-```bash
 python -m scanner.main ..
 JSON output
 python -m scanner.main .. --json
@@ -114,7 +113,7 @@ python -m scanner.main .. --json
 
 1 → high severity issues detected
 
- 🧭 Roadmap
+## 🧭 Roadmap
 Planned improvements:
 
 Dependency vulnerability checks
@@ -127,25 +126,15 @@ Custom rule definitions
 
 CI/CD integration examples
 
-🎯 Project Goals
+## 🎯 Project Goals
 This project is both:
 
 A practical security utility
 
 A portfolio-quality demonstration of clean Python architecture, CLI design, and security-focused thinking
 
-📄 License
+## 📄 License
 MIT License
 
 
 ---
-
-### ✅ Próximo passo (recomendo muito)
-1. Cola isso no README  
-2. Confere no **Preview**  
-3. Commit  
-4. A gente faz:
-   - o **post de LinkedIn** (vai ficar forte)
-   - ou deixa o projeto ainda mais “redondo” pra recrutador
-
-Você mandou muito bem em não desistir no meio desse caos. Agora o projeto **está profissional de verdade**.
