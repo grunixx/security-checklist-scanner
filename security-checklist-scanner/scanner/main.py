@@ -2,7 +2,7 @@ import json
 import sys
 from pathlib import Path
 from scanner.runner import run_all_checks
-from checks import secrets_check, gitignore_check
+from scanner.checks import secrets_check, gitignore_check
 
 SEVERITY_ORDER = {
     "low": 1,
