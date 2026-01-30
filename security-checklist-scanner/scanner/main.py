@@ -1,7 +1,7 @@
 import json
 import sys
 from pathlib import Path
-from scanner.runner import run_all_checks
+
 from scanner.checks import secrets_check, gitignore_check
 
 SEVERITY_ORDER = {
@@ -39,15 +39,18 @@ def main():
 
     results = []
 
+    # Secrets check
+    secrets_result = secrets_check.run(project_path)
     results.append({
         "check": "secrets_check",
-        **secrets_check.run(project_path)
+        **secrets_result
     })
 
+    # Gitignore check
+    gitignore_result = gitignore_check.run(project_path)
     results.append({
         "check": "gitignore_check",
-        **gitignore_check.run(project_path),
-        "severity": "medium" if gitignore_check.run(project_path)[0] == "warning" else "low"
+        **gitignore_result
     })
 
     global_severity = calculate_global_severity(results)

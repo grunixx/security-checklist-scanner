@@ -19,16 +19,7 @@ def run(project_path: Path):
             "files": []
         }
 
-    try:
-        content = gitignore_path.read_text()
-    except Exception:
-        return {
-            "status": "warning",
-            "severity": "medium",
-            "message": "Unable to read .gitignore file",
-            "files": []
-        }
-
+    content = gitignore_path.read_text()
     missing = []
 
     for pattern in SENSITIVE_PATTERNS:
@@ -40,9 +31,7 @@ def run(project_path: Path):
             "status": "warning",
             "severity": "medium",
             "message": f".gitignore missing sensitive entries: {', '.join(missing)}",
-            "files": [
-                {"file": ".gitignore", "severity": "medium"}
-            ]
+            "files": [{"file": ".gitignore", "severity": "medium"}]
         }
 
     return {
