@@ -18,7 +18,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
+          
+      - name: Add scanner to PYTHONPATH
+        run: |
+          echo "PYTHONPATH=$PYTHONPATH:$(pwd)/security-checklist-scanner" >> $GITHUB_ENV
+    
       - name: Run security scanner
         run: |
-          python -m security_checklist_scanner.scanner.main security-checklist-scanner
+          python -m scanner.main security-checklist-scanner
