@@ -20,6 +20,6 @@ jobs:
           python-version: "3.11"
 
       - name: Run security scanner
+        working-directory: security-checklist-scanner/scanner
         run: |
-          python security-checklist-scanner/scanner/main.py security-checklist-scanner
-
+          python main.py ..
