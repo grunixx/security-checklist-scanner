@@ -43,3 +43,109 @@ The tool is designed to be:
 4. A global severity level is calculated  
 5. Results are printed in a human-friendly CLI output (or JSON)
 
+scanner/
+├── main.py
+├── runner.py
+├── checks/
+│ ├── secrets_check.py
+│ └── gitignore_check.py
+
+
+Each check exposes a `run(project_path: Path)` function and returns a structured result.
+
+---
+
+## 🔎 Implemented Checks
+
+### 🔐 Secrets Check (`secrets_check`)
+
+Scans source files for **possible hardcoded secrets**, such as:
+
+- API keys  
+- Tokens  
+- Passwords  
+
+**Features:**
+
+- Regex-based detection  
+- Severity classification (low / medium / high)  
+- Ignores common directories (`.git`, `node_modules`, `venv`, etc.)
+
+**Example output:**
+
+• secrets_check
+status: ok
+severity: low
+message: No hardcoded secrets detected
+
+
+---
+
+### 📁 Gitignore Check (`gitignore_check`)
+
+Validates whether the project `.gitignore` includes common sensitive patterns, such as:
+
+- `.env`  
+- `*.pem`  
+- `*.key`  
+
+If missing, the check raises a warning with **medium severity**.
+
+**Example output:**
+
+• gitignore_check
+status: warning
+severity: medium
+message: .gitignore missing sensitive entries: .env, *.env, *.pem
+
+
+---
+
+## ▶️ How to Run
+
+From inside the `scanner` directory:
+
+```bash
+python -m scanner.main ..
+JSON output
+python -m scanner.main .. --json
+🚦 Exit Codes
+0 → no high severity issues detected
+
+1 → high severity issues detected
+
+ 🧭 Roadmap
+Planned improvements:
+
+Dependency vulnerability checks
+
+File permission analysis
+
+Configurable severity thresholds
+
+Custom rule definitions
+
+CI/CD integration examples
+
+🎯 Project Goals
+This project is both:
+
+A practical security utility
+
+A portfolio-quality demonstration of clean Python architecture, CLI design, and security-focused thinking
+
+📄 License
+MIT License
+
+
+---
+
+### ✅ Próximo passo (recomendo muito)
+1. Cola isso no README  
+2. Confere no **Preview**  
+3. Commit  
+4. A gente faz:
+   - o **post de LinkedIn** (vai ficar forte)
+   - ou deixa o projeto ainda mais “redondo” pra recrutador
+
+Você mandou muito bem em não desistir no meio desse caos. Agora o projeto **está profissional de verdade**.
