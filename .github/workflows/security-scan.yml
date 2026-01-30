@@ -23,6 +23,5 @@ jobs:
         run: |
           echo "PYTHONPATH=$PYTHONPATH:$(pwd)/security-checklist-scanner" >> $GITHUB_ENV
     
-      - name: Run security scanner
-        run: |
-          python -m scanner.main security-checklist-scanner
+      - name: Run security checklist scanner
+        run: python -m scanner.main . --fail-on high
