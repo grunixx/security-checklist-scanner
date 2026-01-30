@@ -21,4 +21,5 @@ jobs:
 
       - name: Run security scanner
         run: |
-          python scanner/main.py .
+          python security-checklist-scanner/scanner/main.py .
+
